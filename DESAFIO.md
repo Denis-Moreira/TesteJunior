@@ -14,11 +14,13 @@ A estrutura já está criada e parte do código já está implementado como refe
 
 ```
 TesteVeste/
-├── TesteVeste.Domain/          → Entidades e interfaces de repositório
-├── TesteVeste.Application/     → Serviços, DTOs e interfaces de serviço
-├── TesteVeste.Infrastructure/  → EF Core InMemory, repositórios concretos
-└── TesteVeste.API/             → Controllers ASP.NET Core + Scalar
-└── TesteVeste.Tests/           → Testes unitários (xUnit + Moq)
+├── src/
+│   ├── TesteVeste.Domain/          → Entidades e interfaces de repositório
+│   ├── TesteVeste.Application/     → Serviços, DTOs e interfaces de serviço
+│   ├── TesteVeste.Infrastructure/  → EF Core InMemory, repositórios concretos
+│   └── TesteVeste.API/             → Controllers ASP.NET Core + Scalar
+└── tests/
+    └── TesteVeste.Tests/           → Testes unitários (xUnit + Moq)
 ```
 
 > **Arquivos de referência** — estão completamente implementados para você consultar:
@@ -39,11 +41,11 @@ TesteVeste/
 
 ```bash
 # Clonar o projeto
-git clone <url-do-repo>
+git clone https://github.com/Denis-Moreira/TesteVeste.git
 cd TesteVeste
 
 # Rodar a API (sem precisar de banco de dados)
-dotnet run --project TesteVeste.API
+dotnet run --project src/TesteVeste.API
 
 # Acessar a documentação da API (Scalar)
 # http://localhost:5285/scalar/v1
