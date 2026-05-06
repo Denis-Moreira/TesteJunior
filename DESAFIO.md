@@ -41,7 +41,7 @@ TesteVeste/
 
 ```bash
 # Clonar o projeto
-git clone https://github.com/Denis-Moreira/TesteVeste.git
+git clone https://github.com/Denis-Moreira/TesteJunior.git
 cd TesteVeste
 
 # Rodar a API (sem precisar de banco de dados)
