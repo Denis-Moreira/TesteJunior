@@ -43,10 +43,13 @@ public class AuthController : ControllerBase
 
     private string GerarToken(string usuario)
     {
-        var secretKey = _configuration["Jwt:SecretKey"]!;
-        var issuer    = _configuration["Jwt:Issuer"]!;
-        var audience  = _configuration["Jwt:Audience"]!;
-        var expiration = int.Parse(_configuration["Jwt:ExpirationMinutes"]!);
+        var secretKey  = _configuration["Jwt:SecretKey"]
+            ?? throw new InvalidOperationException("Jwt:SecretKey não configurado.");
+        var issuer     = _configuration["Jwt:Issuer"]
+            ?? throw new InvalidOperationException("Jwt:Issuer não configurado.");
+        var audience   = _configuration["Jwt:Audience"]
+            ?? throw new InvalidOperationException("Jwt:Audience não configurado.");
+        var expiration = int.TryParse(_configuration["Jwt:ExpirationMinutes"], out var min) ? min : 60;
 
         var key   = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
